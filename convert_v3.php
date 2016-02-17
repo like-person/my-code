@@ -7,6 +7,7 @@ $rubric_old=$_REQUEST['rubric_old'];
 print "<div align=\"center\">";
 print "<h2>Приведение к новому рубрикатору ver3</h2>";
 
+/*Рекурсивная функция формирования списка рубрик*/
 function rec_rubs($type, $rubric_id=0, $rname_old='')
 {
 	global $database;
@@ -21,7 +22,7 @@ function rec_rubs($type, $rubric_id=0, $rname_old='')
 
 if( empty($_POST['setrubrics']) )
 {
-	#Шаг 1 для перемещения по закладкам
+	#Шаг 1. Форма выбора товаров и рубрик
 	print "<h2>Шаг-1 Выбор товаров из рубрики " . getRubricName($rubric_old) . " для перемещения</h2><br/>";
 	print "<font color='green'>Выберите товары для перемещения</font><br/>";
 	print "<form method=\"POST\">";
@@ -53,12 +54,11 @@ if( empty($_POST['setrubrics']) )
 }
 else
 {
-	# Шаг 3 для перемещения по закладкам
+	# Шаг 2. Перемещаем выбранные товары
 	$rubric_new = intval($_REQUEST['rubric_new']);
         $rubrics = $_POST['rubrics'];
     	if(count($rubrics)>0 && $rubric_new>0)
         {
-		print "<h2>Перемещаем выбранные товары</h2><br/>";
                 foreach($rubrics as $rub_id=>$goods)
                 {
 			$arr_goods = explode("|", $goods);
