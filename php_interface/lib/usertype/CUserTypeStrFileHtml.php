@@ -28,7 +28,6 @@ class CUserTypeStrFileHtml
             'PROPERTY_TYPE' => Iblock\PropertyTable::TYPE_STRING,
             'ConvertToDB' => [__CLASS__, 'ConvertToDB'],
             'ConvertFromDB' => [__CLASS__, 'ConvertFromDB'],
-            'GetPropertyFieldHtml' => [__CLASS__, 'GetPropertyFieldHtml'],
             'GetPropertyFieldHtmlMulty' => [__CLASS__, 'GetPropertyFieldHtmlMulty'],
         );
     }
